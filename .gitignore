@@ -30,3 +30,5 @@
 #
 # Repository custom ignores
 #
+.env
+data/
