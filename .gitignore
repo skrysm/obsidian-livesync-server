@@ -32,3 +32,5 @@
 #
 .env
 data/
+config/docker.ini
+config/zz-write-back.ini
