@@ -23,6 +23,7 @@ services:
       - ./secrets.proxy.env
     ports:
       - "${SERVER_HTTPS_PORT:-443}:${SERVER_HTTPS_PORT:-443}"
+      - "80:80" # required for ACME HTTP01 challenge to get HTTPS certificates
     volumes:
       - ./files/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_config:/config/
