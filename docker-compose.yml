@@ -12,6 +12,26 @@ services:
       # IMPORTANT: CouchDB sometimes writes changes to this folder (e.g. password changes). So it
       #   needs to be writable.
       - ./files/couchdb/local.d:/opt/couchdb/etc/local.d
+
+  reverse-proxy:
+    image: caddy:2.10.2-alpine
+    container_name: reverse-proxy
+    restart: unless-stopped
+    environment:
+      - SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT:-443}
+    env_file:
+      - ./secrets.proxy.env
     ports:
-      - "127.0.0.1:5984:5984"
-      #- "80:5984"
+      - "${SERVER_HTTPS_PORT:-443}:${SERVER_HTTPS_PORT:-443}"
+    volumes:
+      - caddy_config:/config/
+      - caddy_data:/data/
+
+volumes:
+  # NOTE: Caddy requires these two volumes to persist across deployments.
+  #   Primarily, the data volume which is used to store certificates Caddy
+  #   got from Let's Encrypt. (Without this, Caddy would re-request its certificate
+  #   over and over again and thus may run into a rate limit; see: https://letsencrypt.org/docs/rate-limits/.)
+  #   See: https://hub.docker.com/_/caddy/#how-to-use-this-image
+  caddy_config:
+  caddy_data:
