@@ -24,6 +24,7 @@ services:
     ports:
       - "${SERVER_HTTPS_PORT:-443}:${SERVER_HTTPS_PORT:-443}"
     volumes:
+      - ./files/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_config:/config/
       - caddy_data:/data/
 
