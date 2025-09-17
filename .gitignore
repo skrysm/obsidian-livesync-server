@@ -30,7 +30,10 @@
 #
 # Repository custom ignores
 #
+
+# Contains the admin password
 .env
+# Contains the databases
 data/
+# Contains various sensitive information (including the admin password)
 config/docker.ini
-config/zz-write-back.ini
