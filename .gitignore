@@ -32,8 +32,8 @@
 #
 
 # Contains the admin password
-.env
+secrets.*.env
 # Contains the databases
 data/
 # Contains various sensitive information (including the admin password)
-config/docker.ini
+files/couchdb/local.d/docker.ini

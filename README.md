@@ -4,7 +4,7 @@ This repo contains a ready-to-use server for the [Obsidian LiveSync plugin](http
 
 ## One-Time Setup
 
-Create `.env` file in the root directory (i.e. the directory where the `docker-compose.yml` file is located):
+Create `secrets.couchdb.env` file in the root directory (i.e. the directory where the `docker-compose.yml` file is located):
 
 ```
 COUCHDB_PASSWORD=<your-couchdb-admin-password>
