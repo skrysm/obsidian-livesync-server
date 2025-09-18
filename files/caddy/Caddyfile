@@ -17,7 +17,7 @@
 }
 
 https://{$SERVER_DOMAIN}:{$SERVER_HTTPS_PORT} {
-	reverse_proxy couchdb:5984 {
+	reverse_proxy obsidian-couchdb:5984 {
 		header_up Host {host}
 		header_up X-Forwarded-Port {server_port}
 	}

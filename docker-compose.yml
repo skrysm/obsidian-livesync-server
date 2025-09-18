@@ -1,7 +1,7 @@
 services:
   couchdb:
     image: couchdb:3.5.0
-    container_name: couchdb
+    container_name: obsidian-couchdb
     restart: unless-stopped
     environment:
       - COUCHDB_USER=admin
@@ -24,7 +24,7 @@ services:
 
   reverse-proxy:
     image: caddy:2.10.2-alpine
-    container_name: reverse-proxy
+    container_name: obsidian-reverse-proxy
     restart: unless-stopped
     environment:
       - SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT:-443}
