@@ -12,6 +12,12 @@ services:
       # IMPORTANT: CouchDB sometimes writes changes to this folder (e.g. password changes). So it
       #   needs to be writable.
       - ./files/couchdb/local.d:/opt/couchdb/etc/local.d
+    # This is required on some OSes (e.g. Debian Trixie) or else CouchDB will use about 2 GB of memory
+    # without any databases. With this, the memory consumption is reduced to about 300 MB.
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
 
   reverse-proxy:
     image: caddy:2.10.2-alpine

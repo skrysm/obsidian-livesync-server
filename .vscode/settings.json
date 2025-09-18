@@ -3,7 +3,10 @@
 	"cSpell.words": [
 		"editorconfig",
 		"Fauxton",
-		"markdownlint"
+		"markdownlint",
+		"nofile",
+		"Trixie",
+		"ulimits"
 	],
 
 	"markdownlint.config": {
