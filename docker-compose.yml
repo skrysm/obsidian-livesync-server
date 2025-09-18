@@ -12,6 +12,9 @@ services:
       # IMPORTANT: CouchDB sometimes writes changes to this folder (e.g. password changes). So it
       #   needs to be writable.
       - ./files/couchdb/local.d:/opt/couchdb/etc/local.d
+    mem_reservation: 450m # soft limit
+    mem_limit: 512m # hard limit
+    memswap_limit: 1g # hard limit including swap
     # This is required on some OSes (e.g. Debian Trixie) or else CouchDB will use about 2 GB of memory
     # without any databases. With this, the memory consumption is reduced to about 300 MB.
     ulimits:
