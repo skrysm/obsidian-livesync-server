@@ -24,6 +24,12 @@ SERVER_DOMAIN=<your-domain>
 > [!NOTE]
 > The specified domain name (`<your-domain>`) must resolve to the IP address of the server.
 
+After that **restrict permissions** on the secret files:
+
+```sh
+> chmod 0600 secrets*.env
+```
+
 ## Running the Server
 
 To run the server, run:
