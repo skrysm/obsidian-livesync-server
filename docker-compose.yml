@@ -23,7 +23,7 @@ services:
         hard: 65535
 
   reverse-proxy:
-    image: caddy:2.10.2-alpine
+    image: caddy:2.11.4-alpine
     container_name: obsidian-reverse-proxy
     restart: unless-stopped
     environment:
